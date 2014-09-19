@@ -1,0 +1,22 @@
+{
+  "name": "angular-store",
+  "version": "0.0.0",
+  "authors": [
+    "Miroslav Martynov <marty.mircha@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.25",
+    "bootstrap": "~3.2.0"
+  }
+}
