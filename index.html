@@ -8,6 +8,16 @@
 <body>
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
-<p>{{"hello" + " you!"}}</p>
+<div class="container">
+    <p>{{"hello" + " you!"}}</p>
+
+    <div ng-controller="StoreController as store">
+        <h1>{{store.product.name}}</h1>
+
+        <h2>${{store.product.price}}</h2>
+
+        <p>{{store.product.description}}</p>
+    </div>
+</div>
 </body>
 </html>
