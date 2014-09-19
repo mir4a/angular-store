@@ -12,11 +12,22 @@
     <p>{{"hello" + " you!"}}</p>
 
     <div ng-controller="StoreController as store">
-        <h1>{{store.product.name}}</h1>
+        <div ng-repeat="product in store.products">
 
-        <h2>${{store.product.price}}</h2>
+            <div class="panel panel-info" ng-hide="product.soldOut">
 
-        <p>{{store.product.description}}</p>
+                <div class="panel-heading">{{product.name}}</div>
+
+                <div class="panel-body">
+
+
+                    <h2>${{product.price}}</h2>
+
+                    <p>{{product.description}}</p>
+                    <button ng-show="product.canPurchase">Add to Cart</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
