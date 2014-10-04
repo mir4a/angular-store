@@ -5,9 +5,18 @@
   // Closure is a good habbit
 (function () {
   var app = angular.module('store', ['store-products']);
-  app.controller('StoreController', function () {
-    this.products = gem;
-  });
+  app.controller('StoreController', ['$http', function($http){
+    var store = this;
+
+    store.product = [];
+
+    $http.get('api/products.json').success(function (data) {
+      store.products = data;
+    }).error(function (err) {
+      console.log(err);
+    });
+
+  }]);
 
   app.controller("ReviewController", function() {
     this.review = {};
@@ -19,79 +28,4 @@
     };
   });
 
-
-  var gem = [
-    {
-      name       : 'Wow gem',
-      price      : 2.65,
-      description: "Some description",
-      canPurchase: true,
-      soldOut    : false,
-      images: [
-        "images/hokkey.jpg",
-        "images/horror.jpg"
-      ],
-      reviews: [
-        {
-          stars: 5,
-          body: "I love this gem!",
-          author: "joe@example.org",
-          createdOn: 1397490980837
-        }, {
-          stars: 1,
-          body: "This gem sucks.",
-          author: "tim@example.org",
-          createdOn: 1397490980837
-        }
-      ]
-    },
-    {
-      name       : 'Gadamn gem',
-      price      : 2,
-      description: "Some description",
-      canPurchase: false,
-      soldOut    : true,
-      images: [
-        "images/humor.jpg",
-        "images/kamish.jpg"
-      ],
-      reviews: [
-        {
-          stars: 5,
-          body: "I love this gem!",
-          author: "joe@example.org",
-          createdOn: 1397490980837
-        }, {
-          stars: 1,
-          body: "This gem sucks.",
-          author: "tim@example.org",
-          createdOn: 1397490980837
-        }
-      ]
-    },
-    {
-      name       : 'Waaat?',
-      price      : 23.45,
-      description: "Some description",
-      canPurchase: false,
-      soldOut    : false,
-      images: [
-        "images/kashey.jpg",
-        "images/horror.jpg"
-      ],
-      reviews: [
-        {
-          stars: 5,
-          body: "I love this gem!",
-          author: "joe@example.org",
-          createdOn: 1397490980837
-        }, {
-          stars: 1,
-          body: "This gem sucks.",
-          author: "tim@example.org",
-          createdOn: 1397490980837
-        }
-      ]
-    }
-  ]
 })();
