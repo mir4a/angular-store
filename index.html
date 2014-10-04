@@ -17,7 +17,7 @@
 
         <div class="panel panel-info" ng-hide="product.soldOut">
 
-            <div class="panel-heading">{{product.name}}</div>
+            <h3 class="panel-heading" ng-include="'templates/name.html'"></h3>
 
             <div class="panel-body">
                 <section ng-controller="PanelController as panel" >
