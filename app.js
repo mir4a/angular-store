@@ -29,6 +29,13 @@
     };
   });
 
+  app.directive('productTitle', function() {
+    return {
+      restrict: 'E', // E - element
+      templateUrl: 'templates/name.html'
+    }
+  });
+
 
   var gem = [
     {
