@@ -1,21 +1,42 @@
-/**
- * Created by mir4a on 9/19/14.
- */
-
   // Closure is a good habbit
 (function () {
-  var app = angular.module('store', ['store-products']);
-  app.controller('StoreController', function () {
-    this.products = gem;
+  var app = angular.module('store-products', []);
+
+  app.directive('productTitle', function() {
+    return {
+      restrict: 'A', // E - element, A - attribute
+      templateUrl: 'templates/name.html'
+    }
   });
 
-  app.controller("ReviewController", function() {
-    this.review = {};
+  app.directive('productTabs', function () {
+    return {
+      restrict: 'E',
+      templateUrl: 'templates/tabs.html',
+      controller: function() {
+        this.tab = 1;
+        this.selectTab = function(setTab) {
+          this.tab = setTab;
+        };
+        this.isSelected = function(checkTab) {
+          return this.tab === checkTab;
+        };
+      },
+      controllerAs: 'panel'
+    }
+  });
 
-    this.addReview = function(product) {
-      this.review.createdOn = Date.now();
-      product.reviews.push(this.review);
-      this.review = {};
+  app.directive('productGallery', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'templates/product-gallery.html',
+      controller: function() {
+        this.current = 0;
+        this.setCurrent = function(imageNumber){
+          this.current = imageNumber || 0;
+        };
+      },
+      controllerAs: 'gallery'
     };
   });
 
