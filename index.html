@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
     <title>Angular store</title>
 </head>
 <body ng-controller="StoreController as store">
@@ -48,33 +49,33 @@
                                 <blockquote>
                                     <strong>{{review.stars}} Stars</strong>
                                     {{review.body}}
-                                    <cite class="clearfix">— {{review.author}}</cite>
+                                    <cite class="clearfix">— {{review.author}} on {{review.createdOn | date}}</cite>
                                 </blockquote>
                             </li>
                         </ul>
 
-                        <form name="reviewForm">
+                        <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
                             <hr/>
                             <blockquote>
-                                <strong>{{review.stars}} Stars</strong>
-                                {{review.body}}
-                                <cite class="clearfix">— {{review.author}}</cite>
+                                <strong>{{reviewCtrl.review.stars}} Stars</strong>
+                                {{reviewCtrl.review.body}}
+                                <cite class="clearfix">— {{reviewCtrl.review.author}}</cite>
                             </blockquote>
                             <hr/>
 
                             <h4>Submit a Review</h4>
                             <fieldset class="form-group">
-                                <select class="form-control" ng-model="review.stars" ng-options="star for stars in [5,4,3,2,1]" title="Stars rating">
-                                    <option selected> Rate the product</option>
+                                <select class="form-control" ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars rating" required>
+                                    <option value=""> Rate the product</option>
                                 </select>
                             </fieldset>
 
                             <fieldset class="form-group">
-                                <textarea class="form-control" ng-model="review.body" placeholder="Write a short review message…" title="Review"></textarea>
+                                <textarea class="form-control" ng-model="reviewCtrl.review.body" placeholder="Write a short review message…" title="Review" required></textarea>
                             </fieldset>
 
                             <fieldset class="form-group">
-                                <input type="email" class="form-control" ng-model="review.author" placeholder="john@example.com" title="Email">
+                                <input type="email" class="form-control" ng-model="reviewCtrl.review.author" placeholder="john@example.com" title="Email" required>
                             </fieldset>
 
                             <fieldset class="form-group">
