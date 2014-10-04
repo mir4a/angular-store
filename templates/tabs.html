@@ -68,13 +68,7 @@
 
         </div>
 
-        <div class="row" ng-show="{{ product.images.length }}">
-            <div class="col-md-3" ng-repeat="image in product.images">
-                <a class="thumbnail" href="#">
-                    <img ng-src="{{image}}" alt="{{product.name}}"/>
-                </a>
-            </div>
-        </div>
+        <product-gallery></product-gallery>
 
         <button ng-show="product.canPurchase">Add to Cart</button>
     </section>

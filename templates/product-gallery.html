@@ -1,0 +1,12 @@
+<div ng-show="product.images.length">
+    <div class="img-wrap thumbnail">
+        <img ng-src="{{product.images[gallery.current]}}" alt="{{product.name}}"/>
+    </div>
+    <div class="row">
+        <div class="col-sm-4" ng-repeat="image in product.images">
+            <div>
+                <img class="img-responsive img-circle" ng-src="{{image}}" alt="{{product.name}}" ng-click="gallery.setCurrent($index)" />
+            </div>
+        </div>
+    </div>
+</div>
