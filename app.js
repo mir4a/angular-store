@@ -31,7 +31,7 @@
 
   app.directive('productTitle', function() {
     return {
-      restrict: 'E', // E - element
+      restrict: 'A', // E - element, A - attribute
       templateUrl: 'templates/name.html'
     }
   });
