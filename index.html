@@ -42,7 +42,16 @@
                         <p>no content</p>
                     </div>
                     <div class="panel" ng-show="panel.isSelected(3)">
-                        <p>no content</p>
+                        <h4>Reviews</h4>
+                        <ul>
+                            <li ng-repeat="review in product.reviews">
+                                <blockquote>
+                                    <strong>{{review.stars}} Stars</strong>
+                                    {{review.body}}
+                                    <cite class="clearfix">— {{review.author}}</cite>
+                                </blockquote>
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="row" ng-show="{{ product.images.length }}">

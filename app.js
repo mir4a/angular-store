@@ -29,6 +29,19 @@
       images: [
         "images/hokkey.jpg",
         "images/horror.jpg"
+      ],
+      reviews: [
+        {
+          stars: 5,
+          body: "I love this gem!",
+          author: "joe@example.org",
+          createdOn: 1397490980837
+        }, {
+          stars: 1,
+          body: "This gem sucks.",
+          author: "tim@example.org",
+          createdOn: 1397490980837
+        }
       ]
     },
     {
@@ -40,6 +53,19 @@
       images: [
         "images/humor.jpg",
         "images/kamish.jpg"
+      ],
+      reviews: [
+        {
+          stars: 5,
+          body: "I love this gem!",
+          author: "joe@example.org",
+          createdOn: 1397490980837
+        }, {
+          stars: 1,
+          body: "This gem sucks.",
+          author: "tim@example.org",
+          createdOn: 1397490980837
+        }
       ]
     },
     {
@@ -51,6 +77,19 @@
       images: [
         "images/kashey.jpg",
         "images/horror.jpg"
+      ],
+      reviews: [
+        {
+          stars: 5,
+          body: "I love this gem!",
+          author: "joe@example.org",
+          createdOn: 1397490980837
+        }, {
+          stars: 1,
+          body: "This gem sucks.",
+          author: "tim@example.org",
+          createdOn: 1397490980837
+        }
       ]
     }
   ]
